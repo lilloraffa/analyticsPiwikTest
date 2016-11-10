@@ -1,0 +1,100 @@
+<!--
+<footer>
+    <div class="container">
+      test test test
+        <p><a href="https://github.com/outrightmental/angularjs-tutorial-1">&hearts; on github</a></p>
+    </div>
+</footer>
+-->
+<!--
+<footer class="footer">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+-->
+
+<footer class="footer-distributed">
+
+	<div class="footer-right">
+
+		<a href="#"><i class="fa fa-facebook"></i></a>
+		<a href="#"><i class="fa fa-twitter"></i></a>
+		<a href="#"><i class="fa fa-linkedin"></i></a>
+		<a href="#"><i class="fa fa-github"></i></a>
+
+	</div>
+
+	<div class="footer-left">
+
+		<p class="footer-links">
+			<a href="#">Home</a>
+			·
+      <a href="about.html">About</a>
+      ·
+      <a href="services.html">Services</a>
+			·
+      <a href="contact.html">Contact</a>
+			·
+			<a href="portfolio-1-col.html">Portfolio</a>
+			·
+      <a href="blog-home-1.html">Blog</a>
+		</p>
+
+		<p>Company Name &copy; 2016</p>
+	</div>
+
+</footer>
+
+
+<!-- Javascript to be executed before Pikwik -->
+<!-- manage the language parameters -->
+<script type="text/javascript">
+	//verificare che il parametro di linguaggio sia impostato
+	var langParamName='lang';
+	var langClickListenerToggle = false;
+	var langValue = '';
+	var getParam = window.location.search.substr(1).split("&");
+	for (i=0; i<getParam.length; i++){
+		if (getParam[i].indexOf(langParamName+'=')!==-1){
+			langValue = getParam[i].split('=')[1];
+			langClickListenerToggle = true;
+
+		}
+	}
+
+	//alert(langClickListenerToggle + ' - ' + langValue);
+
+	if (langClickListenerToggle){
+
+		window.addEventListener("click", function(e) {
+			var href = e.target.getAttribute("href");
+			if(href) {
+				//alert(href);
+				var sepSign = '?';
+				if(href.indexOf("?")!==-1){
+					sepSign='&';
+				}
+					location.href = href + sepSign + langParamName + '=' + langValue;
+					e.preventDefault();
+			}
+		})
+	}
+
+</script>
+
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//lilloraffa.local/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//lilloraffa.local/piwik/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
